@@ -3,3 +3,7 @@ pandas
 requests 
 requests-oauthlib
 beautifulsoup4
+Jinja2
+MarkupSafe
+Werkzeug
+gunicorn
