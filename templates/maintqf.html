@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/maintqf.css') }}">
+    </head>
+   <body>
+       
+        <div class="w3-dark-grey w3-padding-32 w3-center">
+            <h1 class="w3-jumbo">มคอ.3 และ 5</h1>
+            <h1 class="w3-xlarge">หลักสูตร Data Science and Innvoation</h1>
+            <h1 class="w3-xlarge">วิทยาลัยสหวิทยาการ มหาวิทยาลัยธรรมศาสตร์</h1>
+        </div>
+       
+        <div class="w3-bar w3-border w3-light-grey">
+            {% for result in academic_years %}
+                <a href="/?year={{ result }}" class="w3-bar-item w3-button w3-hover-blue">{{ result }}</a>
+            {% endfor %}
+        </div>
+       
+        <div class="w3-container w3-padding-large">
+        <div class="w3-responsive">
+            <p><b>วิธีใช้</b> กด 🔎 เพื่อดู และกด 🖨️ เพื่อพิม</p>
+            <h2>ปีการศึกษา {{ select_year }}</h2>
+            <table class="w3-table-all">
+                <tr class="w3-blue">
+                    <th>รหัสวิชา</th>
+                    <th>ชื่อวิชา</th>
+                    <th>Section</th>
+                    <th>เทอม</th>
+                    <th>มคอ.3</th>
+                    <th>มคอ.5</th>
+                </tr>
+                {% for result in course_list %}
+                    <tr>
+                        <td> {{ result.TH_code }} </td>
+                        <td> {{ result.TH_name }} </td>
+                        <td> {{ result.Section }} </td>
+                        <td> {{ result.Sem }} </td>
+                        <td> <a href="{{ result.tqf3_view }}">🔎</a>  <a href="{{ result.tqf3_print }}">🖨️</a> </td>
+                        <td> 
+                            {% if result.tqf5_view is defined %}
+                                <a href="{{ result.tqf5_view }}">🔎</a>
+                            {% endif %}
+                            {% if result.tqf5_print is defined %}
+                                <a href="{{ result.tqf5_print }}">🖨️</a> 
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        </div>
+
+        <footer class="w3-container w3-padding-large w3-light-grey w3-center w3-opacity">
+            <p><nav>
+            &copy; 2022 Thammasat University
+            </nav></p>
+        </footer>
+   </body>
+</html>
