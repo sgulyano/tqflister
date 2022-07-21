@@ -14,8 +14,8 @@ print(f'TQF3: {args.tqf3}')
 print(f'TQF5: {args.tqf5}')
 print('==================')
 
-tqf3 = pd.read_csv(args.tqf3, encoding='TIS-620')
-tqf5 = pd.read_csv(args.tqf5, encoding='TIS-620')
+tqf3 = pd.read_csv(args.tqf3, encoding='utf-8')
+tqf5 = pd.read_csv(args.tqf5, encoding='utf-8')
 
 def get_sem(s):
     res = re.findall('ภาคการศึกษาที่\s*(\d)', s)

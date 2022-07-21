@@ -93,5 +93,5 @@ if args.tqf == 3:
     df = pd.DataFrame(course_data, columns=['classid', 'TH_name', 'EN_name', 'Semester', 'Year'])
 elif args.tqf == 5:
     df = pd.DataFrame(course_data, columns=['classid', 'TH_name', 'EN_name', 'Semester', 'Section', 'Year'])
-df.to_csv(args.o, index=None, encoding='TIS-620')
+df.to_csv(args.o, index=None, encoding='utf-8')
 print('Done')
